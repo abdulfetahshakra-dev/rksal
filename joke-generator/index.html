@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Joke Generator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1><i class="fas fa-laugh"></i> Joke Generator</h1>
+                <p>Get a good laugh with random jokes</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Joke Display Section -->
+            <section class="joke-section">
+                <div class="joke-container">
+                    <div class="joke-type" id="jokeType">Loading...</div>
+                    <div class="joke-content" id="jokeContent">
+                        <p>Click the button below to get a random joke!</p>
+                    </div>
+                    <div class="joke-footer">
+                        <span id="jokeCategory" class="joke-category">General</span>
+                        <span id="jokeId" class="joke-id"></span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Controls Section -->
+            <section class="controls-section">
+                <button id="newJokeBtn" class="btn btn-primary">
+                    <i class="fas fa-random"></i> Get New Joke
+                </button>
+                <button id="shareBtn" class="btn btn-secondary">
+                    <i class="fas fa-share-alt"></i> Share
+                </button>
+                <button id="copyBtn" class="btn btn-secondary">
+                    <i class="fas fa-copy"></i> Copy
+                </button>
+                <button id="favoriteBtn" class="btn btn-secondary">
+                    <i class="far fa-heart"></i> Favorite
+                </button>
+            </section>
+
+            <!-- Category Filter -->
+            <section class="category-section">
+                <h3>Filter by Category</h3>
+                <div class="category-buttons">
+                    <button class="category-btn active" data-category="any">
+                        <i class="fas fa-list"></i> Any
+                    </button>
+                    <button class="category-btn" data-category="general">
+                        <i class="fas fa-grin"></i> General
+                    </button>
+                    <button class="category-btn" data-category="programming">
+                        <i class="fas fa-code"></i> Programming
+                    </button>
+                    <button class="category-btn" data-category="knock-knock">
+                        <i class="fas fa-door-open"></i> Knock-Knock
+                    </button>
+                </div>
+            </section>
+
+            <!-- Stats Section -->
+            <section class="stats-section">
+                <div class="stat-item">
+                    <i class="fas fa-heart"></i>
+                    <div>
+                        <span class="stat-label">Favorites</span>
+                        <span class="stat-value" id="favoriteCount">0</span>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-list-check"></i>
+                    <div>
+                        <span class="stat-label">Jokes Loaded</span>
+                        <span class="stat-value" id="loadedCount">0</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Favorites Section -->
+            <section class="favorites-section">
+                <div class="section-header">
+                    <h3><i class="fas fa-bookmark"></i> Favorite Jokes</h3>
+                    <button id="toggleFavorites" class="toggle-btn">
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
+                <div id="favoritesList" class="favorites-list hidden">
+                    <div class="empty-favorites">
+                        <p>No favorites yet. Add some jokes to your favorites!</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Powered by <a href="https://jokeapi.dev" target="_blank">Joke API</a></p>
+            <p>&copy; 2024 Random Joke Generator. Favorites are saved locally.</p>
+        </footer>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast hidden">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMessage"></span>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div id="spinner" class="spinner hidden">
+        <div class="spinner-inner">
+            <i class="fas fa-circle-notch"></i>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
